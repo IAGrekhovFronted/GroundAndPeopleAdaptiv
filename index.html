@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Земля и Люди</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <div class="title__logo"></div>
+            <div class="title__sqad"></div>
+            <div class="title__name">ГРАНИТ <br> ЭЛИТ</div>
+        </div>
+    </header>
+    <main>
+        <div class="contain">
+            <form action="check_POST.php" method="post">
+                <div class="contain__monument">
+                    <div class="contain__first"><input type="radio" class="radioButton" name="monument" value="10%">
+                    </div>
+                    <div class="contain__second"><input type="radio" class="radioButton" name="monument" value="10%">
+                    </div>
+                    <div class="contain__third"><input type="radio" class="radioButton" name="monument" value="10%">
+                    </div>
+                    <div class="contain__four"><input type="radio" class="radioButton" name="monument" value="10%">
+                    </div>
+                </div>
+                <div class="contain__button">
+                    <button class="back">Назад</button>
+                    <button class="next" type="submit">Вперед</button>
+                </div>
+            </form>
+        </div>
+        <div class="contain__offer">
+            <h1>Заполните анкету и получите <br>максимальную скидку</h1>
+            <div class="offer__calc">ВАША <div class="ofer_round"><span class="offer__procent">0%</span></div> СКИДКА
+            </div>
+        </div>
+    </main>
+    <div class="rectangleRed"></div>
+    <div class="rectangleBlue"></div>
+    <script src="node.js"></script>
+</body>
+
+</html>

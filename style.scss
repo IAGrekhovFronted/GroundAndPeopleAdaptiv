@@ -1,0 +1,269 @@
+// ==============Памятники
+@mixin image {
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #000;
+    box-shadow: inset 0 0 4px 2px #000;
+    transition: 1.5s;
+
+    &:hover {
+        scale: 1.2;
+        border-radius: 20px;
+        box-shadow: 0 0 4px 4px #000;
+    }
+
+    &::after {
+        content: "Выбрать";
+        position: relative;
+        top: 250px;
+        left: 100px;
+    }
+}
+
+// ==============Кнопки
+@mixin button {
+    height: 50px;
+    width: 180px;
+    font-size: 24px;
+    border-radius: 20px;
+    box-shadow: inset 2px 2px 3px #000;
+
+    &:active {
+        transform: translateX(2px) translateY(2px);
+    }
+}
+
+// ==============Треугольники
+@mixin rectangle {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+}
+
+// ===============================МИКСИНЫ=================================
+@font-face {
+    font-family: ArtnNoovaMedium;
+    src: url(/fonts/Artnoova-Medium.woff2) format('woff2'),
+        url(/fonts/artnoova-medium.otf) format('otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+// ===============================ШРИФТЫ================================
+
+body {
+    font-family: ArtnNoovaMedium, sans-serif;
+    height: 100%;
+    position: relative;
+    min-width: 400px;
+}
+
+.rectangleRed {
+    border-top: 330px*(100vw/1920px) solid #AA1515;
+    border-right: 330px*(100vw/1920px) solid transparent;
+    top: 0;
+    left: 0;
+    @include rectangle;
+}
+
+.rectangleBlue {
+    border-bottom: 330px*(100vw/1920px) solid #70CC1F;
+    border-left: 330px*(100vw/1920px) solid transparent;
+    bottom: 0;
+    right: 0;
+    @include rectangle;
+}
+
+header {
+    height: 15vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        position: relative;
+        zoom: 2;
+        transform: translateX(-5vw);
+    }
+
+    .title__logo {
+        width: 100px;
+        height: 50px;
+        background: #70CC1F;
+        transform: skew(40deg);
+        rotate: 90deg;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        position: absolute;
+        top: 25px;
+    }
+
+    .title__sqad {
+        height: 100px;
+        width: 100px;
+        background-color: #AA1515;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    .title__name {
+        font-size: 40px;
+        color: #AA1515;
+        position: absolute;
+        top: 10px;
+        left: 3em;
+    }
+}
+
+.contain {
+    top: 25vh;
+    height: 30vh;
+    position: relative;
+    padding-left: 100px;
+}
+
+.contain__offer {
+    padding-left: 100px;
+}
+
+.contain__monument {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+
+.contain__first {
+    @include image;
+    background-image: url(img/author.jpg);
+}
+
+.contain__second {
+    @include image;
+    background-image: url(img/figure.jpg);
+}
+
+.contain__third {
+    @include image;
+    background-image: url(img/rezn.jpg);
+}
+
+.contain__four {
+    @include image;
+    background-image: url(img/standart.jpg);
+}
+
+.radioButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    scale: 18;
+    opacity: 0;
+}
+
+.contain__button {
+    top: -5vh;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5vw 0;
+
+    .next {
+        @include button;
+        border: 2px solid #70CC1F;
+    }
+
+    .back {
+        @include button;
+        border: 2px solid #AA1515;
+    }
+}
+
+.contain__offer {
+    top: 30vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 50px;
+
+    h1 {
+        margin-top: 50px;
+        font-size: 45px;
+        text-align: center;
+    }
+
+    .offer__calc {
+        font-size: 40px;
+        color: #70CC1F;
+
+        .ofer_round {
+            display: inline-block;
+            height: 3em;
+            width: 3em;
+            background-color: #AA1515;
+            border-radius: 50%;
+            padding: 0.85em;
+            color: #000;
+        }
+    }
+}
+
+// ============================МЕДИАЗАПРОСЫ==================================
+@media (width < 1600px) {
+    .contain__button {
+        top: 5vh;
+    }
+
+    .contain__offer {
+        flex-direction: column;
+    }
+
+    .rectangleBlue {
+        display: none;
+    }
+}
+
+@media (width < 1040px) {
+    .contain__offer {
+        margin-top: 350px;
+    }
+
+    header {
+        display: block;
+    }
+
+    .title {
+        scale: 0.8;
+        margin: 5vh 15vw 0;
+    }
+
+    .rectangleRed {
+        display: none;
+    }
+}
+
+@media (width < 610px) {
+    .contain__offer {
+        margin-top: 850px;
+    }
+
+    .contain__offer {
+
+        .offer__calc {
+            font-size: 32px;
+            text-align: center;
+            .ofer_round {
+                display: block;
+                margin-left: 10px;
+            }
+        }
+    }
+}
